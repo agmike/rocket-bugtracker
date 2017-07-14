@@ -1,0 +1,56 @@
+{{> common/header }}
+
+<h2>Баг #{{issue.id}}: {{issue.title}}</h2>
+
+<h3>Описание</h3>
+<p>{{issue.description}}</p>
+
+<h3>Метки</h3>
+<table class="uk-table">
+    {{#each tags}}
+        <tr>
+            <td><label>{{name}}</label></td>
+            <td><a href="/issues/{{../issue.id}}/remove-tag/{{id}}" uk-icon="icon: close"></a></td>
+        </tr>
+    {{/each}}
+</table>
+<a class="uk-button uk-button-default" uk-toggle="target: #add-tag">Добавить</a>
+
+<h3>История</h3>
+{{#each history}}
+    <div class="uk-card">
+        <strong>{{user}}:</strong> {{data}}
+    </div>
+{{/each}}
+
+<h3>Комментарий</h3>
+<form action="/issues/{{issue.id}}/comments/new" method="post">
+
+        <div class="uk-form-controls">
+            <textarea class="uk-textarea" rows="5" placeholder="" name="comment"></textarea>
+        </div>
+
+        <button class="uk-button uk-button-default uk-margin-small" type="submit">Добавить</button>
+</form>
+
+<div id="add-tag" uk-modal="center: true">
+    <div class="uk-modal-dialog uk-modal-body">
+        <list class="uk-list" id="add-tag-list">
+        </list>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Закрыть</button>
+        </p>
+    </div>
+</div>
+
+<script language="JavaScript">
+    $('#add-tag').on('show', function() {
+        $.get('/json/tags', {}, function(data) {
+            for (tag of data) {
+                $('#add-tag-list').append('<li><a href="/issues/{{issue.id}}/add-tag/' + tag.id + '">' + tag.name + '</a></li>');
+            }
+        }, 'json')
+    });
+</script>
+
+{{> common/footer }}

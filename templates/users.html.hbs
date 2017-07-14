@@ -1,0 +1,24 @@
+{{> common/header }}
+
+<h2>Пользователи</h2>
+
+<table class="uk-table .uk-table-striped">
+    <thead>
+    <tr>
+        <th>Имя</th>
+        <th>E-mail</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each users}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{email}}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+
+<a href="/users/new" class="uk-button uk-button-default uk-margin-small"Ц>Добавить пользователя</a>
+
+{{> common/footer }}

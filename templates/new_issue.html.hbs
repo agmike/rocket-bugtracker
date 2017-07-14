@@ -1,0 +1,30 @@
+{{> common/header }}
+
+<h2>Создать баг</h2>
+
+<form action="/issues/new" method="post">
+    <fieldset class="uk-fieldset">
+
+        {{#each errors}}
+            <div class="uk-alert-danger" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p>{{this}}</p>
+            </div>
+        {{/each}}
+
+        <label class="uk-form-label" for="form-stacked-text">Название</label>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-stacked-text" type="text" placeholder="" name="title">
+        </div>
+
+        <label class="uk-form-label" for="form-stacked-text">Описание</label>
+        <div class="uk-form-controls">
+            <textarea class="uk-textarea" rows="5" placeholder="" name="description"></textarea>
+        </div>
+
+        <button class="uk-button uk-button-default uk-margin-small" type="submit">Создать</button>
+
+    </fieldset>
+</form>
+
+{{> common/footer }}

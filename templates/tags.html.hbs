@@ -1,0 +1,19 @@
+{{> common/header }}
+
+<h2>Метки</h2>
+
+<ul class="uk-list uk-list-striped">
+    {{#each tags}}
+        <li>{{name}}</li>
+    {{/each}}
+</ul>
+
+<h3>Добавить метку</h3>
+<form action="/tags/new" method="post">
+
+    <input class="uk-input" rows="5" placeholder="" name="name">
+
+    <button class="uk-button uk-button-default uk-margin-small" type="submit">Добавить</button>
+</form>
+
+{{> common/footer }}

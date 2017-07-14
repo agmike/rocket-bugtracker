@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Баг-трекер :: вход в систему</title>
+    <link rel="stylesheet" href="/static/css/uikit.min.css" />
+    <script src="/static/js/jquery-3.2.1_min.js"></script>
+    <script src="/static/js/uikit.min.js"></script>
+    <script src="/static/js/uikit-icons.min.js"></script>
+</head>
+<body>
+
+<div class="uk-container uk-container-small">
+
+    <div class="uk-position-center ">
+        <form action="/login" method="post">
+
+            <legend class="uk-legend">Вход</legend>
+
+
+            {{#if failed_attempt}}
+                <div class="uk-alert-danger" uk-alert>
+                    <a class="uk-alert-close" uk-close></a>
+                    <p>Неверный логин/пароль</p>
+                </div>
+            {{/if}}
+
+            <input class="uk-input uk-form-small uk-margin-small " type="text" name="email" placeholder="логин">
+            <input class="uk-input uk-form-small uk-margin-small " type="password" name="password" placeholder="пароль">
+
+            <button class="uk-button uk-button-default uk-margin-small " type="submit">Войти</button>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

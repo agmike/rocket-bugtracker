@@ -1,0 +1,30 @@
+{{> common/header }}
+
+<h2>{{page_heading}}</h2>
+
+<form action="/users/new" method="post" class="uk-form-horizontal">
+
+    <label class="uk-form-label">Имя</label>
+    <div class="uk-form-controls">
+        <input class="uk-input" type="text" placeholder="" name="name">
+    </div>
+
+    <label class="uk-form-label">E-mail</label>
+    <div class="uk-form-controls">
+        <input class="uk-input" type="text" placeholder="" name="email">
+    </div>
+
+    <label class="uk-form-label">Пароль</label>
+    <div class="uk-form-controls">
+        <input class="uk-input" type="password" placeholder="" name="password">
+    </div>
+
+    <label class="uk-form-label">Подтверждение</label>
+    <div class="uk-form-controls">
+        <input class="uk-input" type="password" placeholder="" name="password_confirm">
+    </div>
+
+    <button class="uk-button uk-button-default uk-margin-small" type="submit">Создать</button>
+</form>
+
+{{> common/footer }}

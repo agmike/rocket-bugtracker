@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Баг-трекер :: {{page_title}}</title>
+    <link rel="stylesheet" href="/static/css/uikit.min.css" />
+    <script src="/static/js/jquery-3.2.1_min.js"></script>
+    <script src="/static/js/uikit.min.js"></script>
+    <script src="/static/js/uikit-icons.min.js"></script>
+</head>
+<body>
+
+<div class="uk-container uk-container-small">
+
+    <a href="/" style="text-decoration: none;"><h1>Баг-трекер</h1></a>
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li><a href="/issues">Баги</a></li>
+                <li><a href="/tags">Метки</a></li>
+                <li><a href="/users">Пользователи</a></li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="/users/{{user.id}}">{{user.name}}</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li><a href="/users/{{user.id}}/edit">Мой профиль</a></li>
+                            <li><a href="/users/{{user.id}}/edit">Настройки</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li><a href="/logout">Выход</a></li>
+            </ul>
+        </div>
+    </nav>

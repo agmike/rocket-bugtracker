@@ -1,0 +1,28 @@
+{{> common/header }}
+
+<h2>Баги</h2>
+<table class="uk-table">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Статус</th>
+            <th>Метки</th>
+        </tr>
+    </thead>
+{{#each issues}}
+    <tbody>
+        <tr>
+            <td><a href="/issues/{{id}}">{{id}}</a></td>
+            <td><a href="/issues/{{id}}">{{title}}</a></td>
+            <td>{{description}}</td>
+            <td>{{#if closed}}закрыт{{else}}открыт{{/if}}</td>
+            <td>{{tags_str}}</td>
+        </tr>
+    </tbody>
+{{/each}}
+</table>
+<a class="uk-button uk-button-default" href="/issues/new">Создать баг</a>
+
+{{> common/footer }}

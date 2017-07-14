@@ -1,0 +1,24 @@
+{{> common/header }}
+
+<h2>Открытые баги</h2>
+<table class="uk-table">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+{{#each issues}}
+    <tbody>
+        <tr>
+            <td><a href="/issues/{{id}}">{{id}}</a></td>
+            <td><a href="/issues/{{id}}">{{title}}</a></td>
+            <td>{{description}}</td>
+        </tr>
+    </tbody>
+{{/each}}
+</table>
+<a class="uk-button uk-button-default" href="/issues/new">Создать баг</a>
+
+{{> common/footer }}
